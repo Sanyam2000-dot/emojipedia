@@ -35,7 +35,7 @@ export default function Input() {
   function emojiClickHandler(emoji) {
     var meaning = emojidictionary[emoji];
     setUser(meaning);
-  }
+  }     
   return (
     <div>
       <h1>EMOJIPEDIA</h1>
