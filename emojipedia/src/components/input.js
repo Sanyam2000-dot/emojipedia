@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../components/Input.css";
 
 var emojidictionary = {
   "😀": "Grinning Face",
@@ -19,9 +20,9 @@ var emojidictionary = {
   "🤩 ": "Star-Struck",
   "😘 ": "Face Blowing a Kiss",
   "😗 ": "Kissing Face",
-  "☺️ ": "Smiling Face",
   "😚": "Kissing Face with Closed Eyes",
   "😙": "Kissing Face with Smiling Eyes",
+  "😒": "What yaar..",
 };
 
 export default function Input() {
@@ -35,15 +36,19 @@ export default function Input() {
   function emojiClickHandler(emoji) {
     var meaning = emojidictionary[emoji];
     setUser(meaning);
-  }     
+  }
   return (
     <div>
       <h1>EMOJIPEDIA</h1>
-      <input onChange={inputHandler}></input>
+      <input className="InputArea" onChange={inputHandler}></input>
       <h2>{user}</h2>
-      <div>
+      <div className="EmojiDiv">
         {dbEmoji.map((emoji, index) => {
-          return <span onClick={() => emojiClickHandler(emoji)}>{emoji}</span>;
+          return (
+            <span className="Emoji" onClick={() => emojiClickHandler(emoji)}>
+              {emoji}
+            </span>
+          );
         })}
       </div>
     </div>
